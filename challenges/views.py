@@ -10,5 +10,7 @@ def index(req):
     return HttpResponse('Welcome to our page')
 
 def monthly_challenge(req, month):
-
-    return HttpResponse(f"In {month} my goal is to {activity[month]}")
+    if(month in activity):
+        return HttpResponse(f"In {month} my goal is to {activity[month]}")
+    else:
+        return HttpResponse('Please use a valid month')
